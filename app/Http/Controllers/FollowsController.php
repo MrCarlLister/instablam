@@ -29,17 +29,16 @@ class FollowsController extends Controller
         return auth()->user()->following()->toggle($user->profile);
     }
 
+    /**
+     * Gets user following details
+     * Better logic returns false if they are following 0 users
+     *
+     * @param User $user
+     * @return void
+     */
     public function index(User $user)
     {
-        // NOTE: Might help me get profile of followers
-        // $users = auth()->user()->following()->pluck('profiles.user_id');
-        // orderBy('created_at', 'DESC') = latest()
-        // get() gets all paginate(x) gets x posts
-        // $posts = Posts::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
-
-        $follows = ($user->following) ? $user->following : false;
-        // $follows = $user->following()->pluck('profiles.title');
-        // dd($user->following());
+        $follows = ($user->following->count()) ? $user->following : false;
         return view('follows.index', compact('follows', 'user'));
     }
 }
