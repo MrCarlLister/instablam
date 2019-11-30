@@ -16,7 +16,7 @@ I've built this as an exercise in learning some fundemental basics for laravel. 
 - Newsfeed of followers post, in date order.
 - Caching of data (includes laravel telescope for application monitoring)
 - Includes functions for sending email to new registers (using smtp.mailtrap.io for email simulation)
-
+- View to display all users followers
 
 ## License
 

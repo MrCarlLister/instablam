@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -26,5 +27,18 @@ class FollowsController extends Controller
 
 
         return auth()->user()->following()->toggle($user->profile);
+    }
+
+    /**
+     * Gets user following details
+     * Better logic returns false if they are following 0 users
+     *
+     * @param User $user
+     * @return void
+     */
+    public function index(User $user)
+    {
+        $follows = ($user->following->count()) ? $user->following : false;
+        return view('follows.index', compact('follows', 'user'));
     }
 }
