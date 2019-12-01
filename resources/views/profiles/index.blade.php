@@ -25,7 +25,13 @@
             </div>
             <div class="d-flex pt-3">
             <div class="pr-4"><strong>{{$postCount}}</strong> posts</div>
-                <div class="pr-4"><strong>{{$followersCount}}</strong> followers</div>
+                <div class="pr-4">
+                    @if($followersCount>0)
+                        <a href="/profile/{{$user->id}}/followers"><strong>{{$followersCount}}</strong> followers</a>
+                    @else
+                    <strong>{{$followersCount}}</strong> followers
+                    @endif
+                </div>
                 <div class="pr-4">
                     @if($followingCount>0)
                         <a href="/profile/{{$user->id}}/follows"><strong>{{$followingCount}}</strong> following</a>
