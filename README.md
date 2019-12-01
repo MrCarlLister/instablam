@@ -17,6 +17,7 @@ I've built this as an exercise in learning some fundemental basics for laravel. 
 - Caching of data (includes laravel telescope for application monitoring)
 - Includes functions for sending email to new registers (using smtp.mailtrap.io for email simulation)
 - View to display all users followers
+- View to display all profiles a user is followering
 
 ## License
 
